@@ -1,14 +1,15 @@
 package com.example.apiservice.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 @Data
-@Entity
+//@Entity
 @NoArgsConstructor
-@Table(name = "customer_address")
+//@Table(name = "customer_address")
 public class CustomerAddress {
 
 	private Customer customer;

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/customers/")
+@RequestMapping("/api/customers")
 public class CustomerController {
 
 	private CustomerClient customerClient;
@@ -27,7 +27,7 @@ public class CustomerController {
 		this.addressClient = addressClient;
 	}
 
-	@GetMapping(path = "customers/{id}")
+	@GetMapping(path = "/customer/{id}")
 	public CustomerAddress getCustomerWithAddress(@PathVariable("id") long customerId){
 		logger.info("COLLECTING CUSTOMER AND ADDRESS WITH ID {} FROM UPSTREAM SERVICE", customerId);
 		Customer customer = customerClient.getCustomer(customerId);
