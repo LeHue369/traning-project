@@ -1,4 +1,4 @@
-server.port: 8080
+server.port: 8082
 
 addressClient:
   baseUrl: http://localhost:8081
@@ -13,20 +13,26 @@ spring:
   application:
     name: api-service
 
-  sleuth:
-    otel:
-      exporter:
-        otlp:
-          endpoint: http://collector:4317
-
 management:
+  server:
+    port: 8080
   endpoint:
     beans:
       enabled: true
+    health:
+      show-details: always
+    metrics:
+      enabled: true
   endpoints:
+    actuator:
+      enabled: true
     web:
+      base-path: /actuator
       exposure:
-        include: beans
+        include: health
+      enabled-by-default: false
+  security:
+    enabled: false
 
 opentracing:
   jaeger:
